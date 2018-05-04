@@ -1,0 +1,12 @@
+id: "ec-3" # this needs to be a single word, no spaces
+title: "elastic cloud compute (memory) corruption" # this is the title that will show up on the scoreboard
+description: "we have created a simple way to proivision virtual machines with some extra PCI Devices to aid us"
+# list of files that should be public (these will be made available via the scoreboard)
+public_files: [
+  "./public_files/EC3.tar.gz",
+]
+tags: ["pwn"] # list of tags
+author: "crowell"
+stateful: false # true|false two consecutive connections go to the same VM
+to_deploy: true # true|fale this chall needs a VM to be deployed
+is_ready: true # true|false this chall is ready for prime time

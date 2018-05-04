@@ -1,0 +1,1 @@
+./configure --disable-kvm  --target-list="x86_64-softmmu" --disable-pie --enable-debug --disable-werror

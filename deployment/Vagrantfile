@@ -1,0 +1,14 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/xenial64"
+  config.vm.network "forwarded_port", guest: 31339, host: 31339, host_ip: "127.0.0.1"
+  config.vm.define "template"
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y socat
+	apt-get install -y qemu
+    cd /vagrant
+    # TODO harden it. Check gitlab issue on this.
+	socat TCP-LISTEN:31339,reuseaddr,fork EXEC:./run.sh,pty,stderr,setsid,sigint,sane &
+    echo "Listening on 31339"
+  SHELL
+end
